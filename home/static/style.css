@@ -1,22 +1,31 @@
 /* style.css for PopWorld */
+html, body {
+    height: 100%;
+}
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Sofia", sans-serif;
+    text-shadow: 3px 3px 3px #ababab;
     background: #f8f9fa;
+    font-size: 62.5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* ******************* Navbar styling ******************* */
 .navbar {
-    background: #222;
-    color: #fff;
-    padding: 0.75rem 0;
+    background: #dddddd;
+    color: #323232;
+    padding: 0.75rem 2rem;
 }
-.navbar .container {
+/* .navbar .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 .navbar-brand {
-    color: #fff;
+    color: #323232;
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
@@ -40,10 +49,20 @@ body {
     color: #ff9800;
 }
 
+/* ******************* Main content styling ******************* */
+.container{
+    padding: 0.5rem 2rem;
+}
+.main-content {
+    flex: 1 0 auto;
+}
+
+/* ******************* Footer styling ******************* */
 footer {
-    background: #222;
-    color: #fff;
-    padding: 2rem 0 1rem 0;
+    flex-shrink: 0;
+    background: #dddddd;
+    color: #323232;
+    padding: 0.75rem 2rem;
     margin-top: 3rem;
 }
 footer .container {
@@ -52,20 +71,9 @@ footer .container {
     justify-content: space-between;
     align-items: flex-start;
 }
-footer h5 {
-    margin-bottom: 0.5rem;
-}
+
 footer p {
     margin: 0 0 0.5rem 0;
-}
-footer .social-links a {
-    color: #fff;
-    margin-right: 1rem;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-footer .social-links a:hover {
-    color: #ff9800;
 }
 footer hr {
     border: 0;
@@ -76,7 +84,7 @@ footer .text-center {
     width: 100%;
     text-align: center;
     font-size: 0.95rem;
-    color: #bbb;
+    color: #999999;
 }
 @media (max-width: 768px) {
     .navbar .container, footer .container {
