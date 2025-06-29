@@ -11,9 +11,51 @@
     </div>
 
     <div class="main-container-2">
-        <h1 class="display-4">Welcome to PopWorld!</h1>
-        <p class="lead">This is the home page rendered from a template.</p>
-        <p>Discover the latest in entertainment, music, and pop culture.</p>
+        <h1 class="display-4">World Stats</h1>
+        
+        <!-- World Population Box -->
+        <div class="stat-box">
+            <h3>Global Population</h3>
+            <div class="stat-value">{{ world_data.total_population }}</div>
+            <div class="stat-label">People</div>
+        </div>
+        
+        <!-- Countries Count Box -->
+        <div class="stat-box">
+            <h3>Countries</h3>
+            <div class="stat-value">{{ world_data.total_countries }}</div>
+            <div class="stat-label">Nations</div>
+        </div>
+        
+        <!-- Top Countries Box -->
+        <div class="stat-box">
+            <h3>Most Populous Countries</h3>
+            <ul class="country-list">
+                {% for country in world_data.top_countries %}
+                <li>
+                    <img src="{{ country.flags.png }}" alt="{{ country.name.common }} flag" class="country-flag">
+                    <span class="country-name">{{ country.name.common }}</span>
+                    <span class="country-population">{{ country.formatted_population }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <!-- Regions Box -->
+        <div class="stat-box">
+            <h3>Population by Region</h3>
+            <div class="regions-container">
+                {% for region, data in world_data.regions.items %}
+                <div class="region-item">
+                    <span class="region-name">{{ region }}</span>
+                    <div class="region-bar-container">
+                        <div class="region-bar" style="width: {{ data.percentage }}%;"></div>
+                    </div>
+                    <span class="region-population">{{ data.formatted_population }} ({{ data.countries }} countries)</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
