@@ -4,7 +4,7 @@ html, body {
 }
 body {
     margin: 0;
-    font-family: "Sofia", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-shadow: 3px 3px 3px #ababab;
     background: #f8f9fa;
     font-size: 62.5%;
@@ -45,17 +45,19 @@ body {
     font-size: 1rem;
     transition: color 0.2s;
 }
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-    color: #ff9800;
-}
+
+
+/* ************************* utility classes ******************* */
+
 
 /* ******************* Main content styling ******************* */
-.container{
-    padding: 0.5rem 2rem;
+.main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-.main-content {
-    flex: 1 0 auto;
-}
+
 
 /* ******************* Footer styling ******************* */
 footer {
