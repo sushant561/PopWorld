@@ -3,9 +3,13 @@
 {% block title %}PopWorld Home{% endblock %}
 
 {% block content %}
-<div class = "main-container">
+<div class="main-container">
     <div class="main-container-1">
-        <p>hello world , the quick brown fox jump over the lazy dog. hello world , the quick brown fox jump over the lazy dog. hello world , the quick brown fox jump over the lazy dog. hello world , the quick brown fox jump over the lazy dog.</p>
+        <h2>Interactive World Map</h2>
+        <p>Hover over countries to see their names</p>
+        <div id="world-map" class="map-container">
+            {{ map_html|safe }}
+        </div>
     </div>
 
     <div class="main-container-2">
