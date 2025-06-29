@@ -13,33 +13,42 @@
     <div class="main-container-2">
         <h1 class="display-4">World Stats</h1>
         
-        <!-- World Population Box -->
-        <div class="stat-box">
-            <h3>Global Population</h3>
-            <div class="stat-value">{{ world_data.total_population }}</div>
-            <div class="stat-label">People</div>
+        <div class="stat-boxes-container">
+            <!-- World Population Box -->
+            <div class="stat-box">
+                <h3>Global Population</h3>
+                <div class="stat-value">{{ world_data.total_population }}</div>
+                <div class="stat-label">People</div>
+            </div>
+            
+            <!-- Countries Count Box -->
+            <div class="stat-box">
+                <h3>Countries</h3>
+                <div class="stat-value">{{ world_data.total_countries }}</div>
+                <div class="stat-label">Nations</div>
+            </div>
+
+             <!-- Top Countries Box -->
+            <div class="stat-box">
+                <h3>Most Populous Countries</h3>
+                <ul class="country-list">
+                    {% for country in world_data.top_countries %}
+                    <li>
+                        <img src="{{ country.flags.png }}" alt="{{ country.name.common }} flag" class="country-flag">
+                        <span class="country-name">{{ country.name.common }}</span>
+                        <span class="country-population">{{ country.formatted_population }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-        
-        <!-- Countries Count Box -->
-        <div class="stat-box">
-            <h3>Countries</h3>
-            <div class="stat-value">{{ world_data.total_countries }}</div>
-            <div class="stat-label">Nations</div>
-        </div>
-        
-        <!-- Top Countries Box -->
-        <div class="stat-box">
-            <h3>Most Populous Countries</h3>
-            <ul class="country-list">
-                {% for country in world_data.top_countries %}
-                <li>
-                    <img src="{{ country.flags.png }}" alt="{{ country.name.common }} flag" class="country-flag">
-                    <span class="country-name">{{ country.name.common }}</span>
-                    <span class="country-population">{{ country.formatted_population }}</span>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
+    </div>
+</div>
+
+<!-- Overflow container for additional boxes -->
+<div class="overflow-container">
+    <div class="main-container-3">
+       
         
         <!-- Regions Box -->
         <div class="stat-box">

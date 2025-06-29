@@ -36,9 +36,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin: 0;
     max-width: none;
+    height: 600px; /* Match map height */
 }
 
 /* Map container styling */
@@ -51,6 +51,52 @@ body {
     margin: 0 auto;
 }
 
+/* Stat boxes container styling */
+.stat-boxes-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(600px - 80px); /* Map height minus heading space */
+    overflow-y:hidden;
+    padding-right: 5px;
+    scrollbar-width:none;
+}
+
+.stat-boxes-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.stat-boxes-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+/* Overflow container styling */
+.overflow-container {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.main-container-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.main-container-3 .stat-box {
+    width: calc(50% - 1rem);
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .main-container-3 .stat-box {
+        width: 100%;
+    }
+}
+
 /* Make sure the Folium map takes full height of container */
 .map-container .folium-map {
     height: 100% !important;
@@ -58,8 +104,8 @@ body {
 }
 
 .main-container-2 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     color: #323232;
     text-align: center;
 }
@@ -67,39 +113,39 @@ body {
 /* Stat boxes styling */
 .stat-box {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem;
+    margin-bottom: 1rem;
     width: 100%;
     transition: transform 0.3s ease;
 }
 
 .stat-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .stat-box h3 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: #444;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     text-align: center;
     border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
 }
 
 .stat-value {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #3186cc;
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .stat-label {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #666;
     text-align: center;
     text-transform: uppercase;
@@ -116,7 +162,7 @@ body {
 .country-list li {
     display: flex;
     align-items: center;
-    padding: 0.5rem 0;
+    padding: 0.3rem 0;
     border-bottom: 1px solid #eee;
 }
 
@@ -125,43 +171,43 @@ body {
 }
 
 .country-flag {
-    width: 30px;
-    height: 20px;
+    width: 24px;
+    height: 16px;
     object-fit: cover;
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
     border: 1px solid #ddd;
 }
 
 .country-name {
     flex: 1;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .country-population {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #666;
     font-weight: bold;
 }
 
 /* Regions styling */
 .regions-container {
-    margin-top: 1rem;
+    margin-top: 0.6rem;
 }
 
 .region-item {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .region-name {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: block;
     margin-bottom: 0.2rem;
 }
 
 .region-bar-container {
-    height: 10px;
+    height: 8px;
     background-color: #eee;
-    border-radius: 5px;
+    border-radius: 0;
     overflow: hidden;
     margin-bottom: 0.2rem;
 }
@@ -169,11 +215,11 @@ body {
 .region-bar {
     height: 100%;
     background-color: #3186cc;
-    border-radius: 5px;
+    border-radius: 0;
 }
 
 .region-population {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #666;
     display: block;
     text-align: right;
@@ -249,6 +295,14 @@ footer .text-center {
     }
     .main-container-1, .main-container-2 {
         width: 100%;
+    }
+    .main-container-2 {
+        height: auto;
+        min-height: 200px;
+    }
+    .stat-boxes-container {
+        height: auto;
+        max-height: 200px;
     }
 }
 @media (max-width: 768px) {
