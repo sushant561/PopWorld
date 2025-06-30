@@ -57,9 +57,8 @@ body {
     flex-direction: column;
     width: 100%;
     height: calc(600px - 80px); /* Map height minus heading space */
-    overflow-y:hidden;
-    padding-right: 5px;
-    scrollbar-width:none;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .stat-boxes-container::-webkit-scrollbar {
@@ -118,6 +117,8 @@ body {
     padding: 0.8rem;
     margin-bottom: 1rem;
     width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     transition: transform 0.3s ease;
 }
 
