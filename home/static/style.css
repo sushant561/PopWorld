@@ -319,3 +319,30 @@ footer .text-center {
         margin: 0.5rem 0 0 0;
     }
 }
+
+/* Country selector styling */
+.country-selector {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.country-dropdown {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #dddddd;
+    border-radius: 0.5rem;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.country-dropdown:hover {
+    border-color: #3186cc;
+}
+
+.country-dropdown:focus {
+    border-color: #3186cc;
+    box-shadow: 0 0 0 2px rgba(49, 134, 204, 0.2);
+}

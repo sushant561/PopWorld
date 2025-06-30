@@ -5,13 +5,38 @@
 {% block content %}
 <div class="main-container">
     <div class="main-container-1">
-        <div id="world-map" class="map-container">
+        <div id="world-map" class="map-container" data-selected-country="{{ selected_country|default:'' }}">
             {{ map_html|safe }}
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var select = document.getElementById('countrySelect');
+                select.addEventListener('change', function() {
+                    var selectedCountry = this.value;
+                    if (selectedCountry) {
+                        window.location.href = '?country=' + selectedCountry;
+                    }
+                });
+                // Remove highlight after 10 seconds
+                var selectedCountry = document.getElementById('world-map').getAttribute('data-selected-country');
+                if (selectedCountry) {
+                    setTimeout(function() {
+                        window.location.href = window.location.pathname;
+                    }, 3000);
+                }
+            });
+            </script>
         </div>
     </div>
 
     <div class="main-container-2">
-        <h1 class="display-4">World Stats</h1>
+        <div class="country-selector">
+            <select id="countrySelect" class="country-dropdown">
+                <option value="">Select a Country</option>
+                {% for country in countries %}
+                    <option value="{{ country.code }}" {% if selected_country == country.code %}selected{% endif %}>{{ country.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
         
         <div class="stat-boxes-container">
             <!-- World Population Box -->
